@@ -7,11 +7,11 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import PromptTemplate
 import os
 
-keyo=os.getenv('OPENAI_API_KEY')
+OPENAI_API_KEY=os.getenv('OPENAI_API_KEY')
 keyg=os.getenv('gemini_key')
 
 
-llm=ChatOpenAI(model='gpt-4',api_key=keyo)
+llm=ChatOpenAI(model='gpt-4',api_key=OPENAI_API_KEY)
 
 emb_llm=GoogleGenerativeAIEmbeddings(model="text-embedding-004",
                                      google_api_key=keyg)
@@ -61,3 +61,4 @@ if file is not None:
     res=chain.invoke({'context':context_text,'question':query})
 
     st.write(res.content)
+
