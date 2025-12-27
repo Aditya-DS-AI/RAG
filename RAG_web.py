@@ -7,7 +7,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import PromptTemplate
 import os
 
-keyo=os.getenv('openai_key')
+keyo=os.getenv('OPENAI_API_KEY')
 keyg=os.getenv('gemini_key')
 
 
@@ -59,4 +59,5 @@ if file is not None:
 
     chain=prompt|llm
     res=chain.invoke({'context':context_text,'question':query})
+
     st.write(res.content)
